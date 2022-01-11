@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
+
+import { StaticContext } from 'react-router';
+
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,8 +16,7 @@ import CalendarViewMonthOutlinedIcon from '@mui/icons-material/CalendarViewMonth
 import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-import { useRouter } from '../utils';
-
+// import { useRouter } from '../utils';
 
 const Naves = [
   { path: '/', label: '今日待办', icon: <WbSunnyOutlinedIcon /> },
@@ -24,11 +27,12 @@ const Naves = [
 ];
 
 function NavBar() {
-  const router = useRouter();
+  const router = useHistory();
 
+  // console.log(props.router);
   const jumpToPage = (path: string) => {
-    // router.push(path)
-  }
+    router.push(path)
+  };
 
   return (
     <List
@@ -44,7 +48,7 @@ function NavBar() {
       {Naves.map((nav, idx) => (
         <ListItemButton key={idx} onClick={() => jumpToPage(nav.path)}>
           <ListItemIcon>{nav.icon}</ListItemIcon>
-          <ListItemText primary={nav.label}  />
+          <ListItemText primary={nav.label} />
         </ListItemButton>
       ))}
     </List>

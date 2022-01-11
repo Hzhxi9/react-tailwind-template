@@ -1,13 +1,23 @@
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 
 import routes from './routes';
 
-export default function () {
+import Layout from '../layout/Layout';
+import NavBar from '../layout/NavBar';
+
+export default function Config() {
   return (
-    <Switch>
-      {routes.map(route => (
-        <Route exact key={route.path} path={route.path} component={route.components} />
-      ))}
-    </Switch>
+    <Layout
+      left={<Router><NavBar /></Router>} 
+      right={
+        <Router>
+          <Switch>
+            {routes.map((route, idx) => (
+              <Route exact key={idx} {...route} />
+            ))}
+          </Switch>
+        </Router>
+      }
+    />
   );
 }
