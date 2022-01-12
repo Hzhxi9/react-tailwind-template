@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { StaticContext } from 'react-router';
-
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -16,13 +14,12 @@ import CalendarViewMonthOutlinedIcon from '@mui/icons-material/CalendarViewMonth
 import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-// import { useRouter } from '../utils';
-
 const Naves = [
   { path: '/', label: '今日待办', icon: <WbSunnyOutlinedIcon /> },
   { path: 'recently-todo', label: '最近待办', icon: <CalendarTodayOutlinedIcon /> },
   { path: '/overview', label: '日期概览', icon: <CalendarViewMonthOutlinedIcon /> },
   { path: '/todyBox', label: '待办箱', icon: <InboxOutlinedIcon /> },
+  { path: '/review', label: '复盘', icon: <InboxOutlinedIcon /> },
   { path: '/search', label: '搜索', icon: <SearchOutlinedIcon /> },
 ];
 
